@@ -8,4 +8,11 @@ textwrap
 pycld2
 morfessor
 pyicu
+tensorflow
+keras
+psutil
+matplotlib
+shutil
+datetime
+operator
 
