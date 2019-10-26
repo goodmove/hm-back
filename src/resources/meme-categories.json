@@ -518,5 +518,35 @@
   {
     "id": "yuno",
     "name": "Y U NO Guy"
+  },
+  {
+    "id": "alien",
+    "url": "https://i.imgflip.com/vp6fv.jpg?a436224",
+    "name": "Alien",
+    "use_url": true
+  },
+  {
+    "id": "roman_bar",
+    "url": "https://cs6.pikabu.ru/post_img/2017/09/03/9/og_og_1504448826243373127.jpg",
+    "name": "Roman In the Bar",
+    "use_url": true
+  },
+  {
+    "id": "science_cat",
+    "url": "https://i.imgflip.com/1bif.jpg",
+    "name": "Science Cat",
+    "use_url": true
+  },
+  {
+    "id": "kids_pool",
+    "url": "https://i.imgflip.com/3ef6fb.jpg",
+    "name": "Kids Pool",
+    "use_url": true
+  },
+  {
+    "id": "sherlock",
+    "url": "https://img.tyt.by/620x620s/n/it/04/2/sherlock_games_pic1.jpg",
+    "name": "Sherlock",
+    "use_url": true
   }
 ]
