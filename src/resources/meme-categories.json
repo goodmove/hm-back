@@ -1,0 +1,522 @@
+[
+  {
+    "id": "aag",
+    "name": "Ancient Aliens Guy"
+  },
+  {
+    "id": "ackbar",
+    "name": "It's A Trap!"
+  },
+  {
+    "id": "afraid",
+    "name": "Afraid to Ask Andy"
+  },
+  {
+    "id": "aint-got-time",
+    "name": "Sweet Brown / Ain't Nobody Got Time For That"
+  },
+  {
+    "id": "ants",
+    "name": "Do You Want Ants?"
+  },
+  {
+    "id": "apcr",
+    "name": "Almost Politically Correct Redneck"
+  },
+  {
+    "id": "atis",
+    "name": "And Then I Said"
+  },
+  {
+    "id": "away",
+    "name": "Life... Finds a Way"
+  },
+  {
+    "id": "awesome",
+    "name": "Socially Awesome Penguin"
+  },
+  {
+    "id": "awesome-awkward",
+    "name": "Socially Awesome Awkward Penguin"
+  },
+  {
+    "id": "awkward",
+    "name": "Socially Awkward Penguin"
+  },
+  {
+    "id": "awkward-awesome",
+    "name": "Socially Awkward Awesome Penguin"
+  },
+  {
+    "id": "bad",
+    "name": "You Should Feel Bad"
+  },
+  {
+    "id": "badchoice",
+    "name": "Milk Was a Bad Choice"
+  },
+  {
+    "id": "bd",
+    "name": "Butthurt Dweller"
+  },
+  {
+    "id": "bender",
+    "name": "I'm Going to Build My Own Theme Park"
+  },
+  {
+    "id": "bihw",
+    "name": "But It's Honest Work"
+  },
+  {
+    "id": "biw",
+    "name": "Baby Insanity Wolf"
+  },
+  {
+    "id": "blb",
+    "name": "Bad Luck Brian"
+  },
+  {
+    "id": "boat",
+    "name": "I Should Buy a Boat Cat"
+  },
+  {
+    "id": "both",
+    "name": "Why Not Both?"
+  },
+  {
+    "id": "bs",
+    "name": "This is Bull, Shark"
+  },
+  {
+    "id": "buzz",
+    "name": "X, X Everywhere"
+  },
+  {
+    "id": "captain",
+    "name": "I am the Captain Now"
+  },
+  {
+    "id": "cb",
+    "name": "Confession Bear"
+  },
+  {
+    "id": "cbg",
+    "name": "Comic Book Guy"
+  },
+  {
+    "id": "center",
+    "name": "What is this, a Center for Ants?!"
+  },
+  {
+    "id": "ch",
+    "name": "Captain Hindsight"
+  },
+  {
+    "id": "chosen",
+    "name": "You Were the Chosen One!"
+  },
+  {
+    "id": "crazypills",
+    "name": "I Feel Like I'm Taking Crazy Pills"
+  },
+  {
+    "id": "cryingfloor",
+    "name": "Crying on Floor"
+  },
+  {
+    "id": "disastergirl",
+    "name": "Disaster Girl"
+  },
+  {
+    "id": "dodgson",
+    "name": "See? Nobody Cares"
+  },
+  {
+    "id": "doge",
+    "name": "Doge"
+  },
+  {
+    "id": "drake",
+    "name": "Drakeposting"
+  },
+  {
+    "id": "dsm",
+    "name": "Dating Site Murderer"
+  },
+  {
+    "id": "dwight",
+    "name": "Schrute Facts"
+  },
+  {
+    "id": "elf",
+    "name": "You Sit on a Throne of Lies"
+  },
+  {
+    "id": "ermg",
+    "name": "Ermahgerd"
+  },
+  {
+    "id": "fa",
+    "name": "Forever Alone"
+  },
+  {
+    "id": "facepalm",
+    "name": "Facepalm"
+  },
+  {
+    "id": "fbf",
+    "name": "Foul Bachelor Frog"
+  },
+  {
+    "id": "feelsgood",
+    "name": "Feels Good"
+  },
+  {
+    "id": "fetch",
+    "name": "Stop Trying to Make Fetch Happen"
+  },
+  {
+    "id": "fine",
+    "name": "This is Fine"
+  },
+  {
+    "id": "firsttry",
+    "name": "First Try!"
+  },
+  {
+    "id": "fmr",
+    "name": "Fuck Me, Right?"
+  },
+  {
+    "id": "fry",
+    "name": "Futurama Fry"
+  },
+  {
+    "id": "fwp",
+    "name": "First World Problems"
+  },
+  {
+    "id": "gandalf",
+    "name": "Confused Gandalf"
+  },
+  {
+    "id": "gears",
+    "name": "You Know What Really Grinds My Gears?"
+  },
+  {
+    "id": "ggg",
+    "name": "Good Guy Greg"
+  },
+  {
+    "id": "grumpycat",
+    "name": "Grumpy Cat"
+  },
+  {
+    "id": "hagrid",
+    "name": "I Should Not Have Said That"
+  },
+  {
+    "id": "happening",
+    "name": "It's Happening"
+  },
+  {
+    "id": "harold",
+    "name": "Hide the Pain Harold"
+  },
+  {
+    "id": "hipster",
+    "name": "Hipster Barista"
+  },
+  {
+    "id": "icanhas",
+    "name": "I Can Has Cheezburger?"
+  },
+  {
+    "id": "imsorry",
+    "name": "Oh, I'm Sorry, I Thought This Was America"
+  },
+  {
+    "id": "inigo",
+    "name": "Inigo Montoya"
+  },
+  {
+    "id": "interesting",
+    "name": "The Most Interesting Man in the World"
+  },
+  {
+    "id": "ive",
+    "name": "Jony Ive Redesigns Things"
+  },
+  {
+    "id": "iw",
+    "name": "Insanity Wolf"
+  },
+  {
+    "id": "jd",
+    "name": "Joseph Ducreux / Archaic Rap"
+  },
+  {
+    "id": "jetpack",
+    "name": "Nothing To Do Here"
+  },
+  {
+    "id": "joker",
+    "name": "It's Simple, Kill the Batman"
+  },
+  {
+    "id": "jw",
+    "name": "Probably Not a Good Idea"
+  },
+  {
+    "id": "keanu",
+    "name": "Conspiracy Keanu"
+  },
+  {
+    "id": "kermit",
+    "name": "But That's None of My Business"
+  },
+  {
+    "id": "leo",
+    "name": "Leo Strutting"
+  },
+  {
+    "id": "live",
+    "name": "Do It Live!"
+  },
+  {
+    "id": "ll",
+    "name": "Laughing Lizard"
+  },
+  {
+    "id": "lrv",
+    "name": "Laundry Room Viking"
+  },
+  {
+    "id": "mb",
+    "name": "Member Berries"
+  },
+  {
+    "id": "mini-keanu",
+    "name": "Mini Keanu Reeves"
+  },
+  {
+    "id": "mmm",
+    "name": "Minor Mistake Marvin"
+  },
+  {
+    "id": "money",
+    "name": "Shut Up and Take My Money!"
+  },
+  {
+    "id": "mordor",
+    "name": "One Does Not Simply Walk into Mordor"
+  },
+  {
+    "id": "morpheus",
+    "name": "Matrix Morpheus"
+  },
+  {
+    "id": "mw",
+    "name": "I Guarantee It"
+  },
+  {
+    "id": "nice",
+    "name": "So I Got That Goin' For Me, Which is Nice"
+  },
+  {
+    "id": "noidea",
+    "name": "I Have No Idea What I'm Doing"
+  },
+  {
+    "id": "oag",
+    "name": "Overly Attached Girlfriend"
+  },
+  {
+    "id": "officespace",
+    "name": "That Would Be Great"
+  },
+  {
+    "id": "older",
+    "name": "An Older Code Sir, But It Checks Out"
+  },
+  {
+    "id": "oprah",
+    "name": "Oprah You Get a Car"
+  },
+  {
+    "id": "patrick",
+    "name": "Push it somewhere else Patrick"
+  },
+  {
+    "id": "persian",
+    "name": "Persian Cat Room Guardian"
+  },
+  {
+    "id": "philosoraptor",
+    "name": "Philosoraptor"
+  },
+  {
+    "id": "puffin",
+    "name": "Unpopular opinion puffin"
+  },
+  {
+    "id": "red",
+    "name": "Oh, Is That What We're Going to Do Today?"
+  },
+  {
+    "id": "regret",
+    "name": "I Immediately Regret This Decision!"
+  },
+  {
+    "id": "remembers",
+    "name": "Pepperidge Farm Remembers"
+  },
+  {
+    "id": "rollsafe",
+    "name": "Roll Safe"
+  },
+  {
+    "id": "sad-biden",
+    "name": "Sad Joe Biden"
+  },
+  {
+    "id": "sad-boehner",
+    "name": "Sad John Boehner"
+  },
+  {
+    "id": "sad-bush",
+    "name": "Sad George Bush"
+  },
+  {
+    "id": "sad-clinton",
+    "name": "Sad Bill Clinton"
+  },
+  {
+    "id": "sad-obama",
+    "name": "Sad Barack Obama"
+  },
+  {
+    "id": "sadfrog",
+    "name": "Sad Frog / Feels Bad Man"
+  },
+  {
+    "id": "saltbae",
+    "name": "Salt Bae"
+  },
+  {
+    "id": "sarcasticbear",
+    "name": "Sarcastic Bear"
+  },
+  {
+    "id": "sb",
+    "name": "Scumbag Brain"
+  },
+  {
+    "id": "scc",
+    "name": "Sudden Clarity Clarence"
+  },
+  {
+    "id": "sf",
+    "name": "Sealed Fate"
+  },
+  {
+    "id": "sk",
+    "name": "Skeptical Third World Kid"
+  },
+  {
+    "id": "ski",
+    "name": "Super Cool Ski Instructor"
+  },
+  {
+    "id": "snek",
+    "name": "Skeptical Snake"
+  },
+  {
+    "id": "soa",
+    "name": "Seal of Approval"
+  },
+  {
+    "id": "sohappy",
+    "name": "I Would Be So Happy"
+  },
+  {
+    "id": "sohot",
+    "name": "So Hot Right Now"
+  },
+  {
+    "id": "soup-nazi",
+    "name": "No Soup for You / Soup Nazi"
+  },
+  {
+    "id": "sparta",
+    "name": "This is Sparta!"
+  },
+  {
+    "id": "spongebob",
+    "name": "Mocking Spongebob"
+  },
+  {
+    "id": "ss",
+    "name": "Scumbag Steve"
+  },
+  {
+    "id": "stew",
+    "name": "Baby, You've Got a Stew Going"
+  },
+  {
+    "id": "stop-it",
+    "name": "Stop It, Get Some Help"
+  },
+  {
+    "id": "success",
+    "name": "Success Kid"
+  },
+  {
+    "id": "tenguy",
+    "name": "10 Guy"
+  },
+  {
+    "id": "toohigh",
+    "name": "The Rent Is Too Damn High"
+  },
+  {
+    "id": "tried",
+    "name": "At Least You Tried"
+  },
+  {
+    "id": "trump",
+    "name": "Donald Trump"
+  },
+  {
+    "id": "ugandanknuck",
+    "name": "Ugandan Knuckles"
+  },
+  {
+    "id": "whatyear",
+    "name": "What Year Is It?"
+  },
+  {
+    "id": "winter",
+    "name": "Winter is coming"
+  },
+  {
+    "id": "wonka",
+    "name": "Condescending Wonka"
+  },
+  {
+    "id": "xy",
+    "name": "X all the Y"
+  },
+  {
+    "id": "yallgot",
+    "name": "Y'all Got Any More of Them"
+  },
+  {
+    "id": "yodawg",
+    "name": "Xzibit Yo Dawg"
+  },
+  {
+    "id": "yuno",
+    "name": "Y U NO Guy"
+  }
+]
