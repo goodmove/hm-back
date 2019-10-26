@@ -11,5 +11,7 @@
 
 `polyglot download ner2.en`
 
+h5 file for the model can be downloaded here[link: https://drive.google.com/open?id=1ZHoLQK8HFRgMp8s-Kpsc_rWDrDo12tko]
+
 ## running 
 `python3 -m src.main.main.py`
