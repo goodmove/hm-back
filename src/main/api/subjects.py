@@ -1,15 +1,16 @@
 from flask import Flask, request
 
 from src.main.api.common import error_response, success_response
-from src.main.database import find_one_subject, get_all_subjects, insert_subject
+from src.main.database.subjects import find_one_subject, get_all_subjects, insert_subject
 from src.main.model.subject import Subject
 
 
 def init(app: Flask):
     @app.route('/api/subjects/<string:subject_id>')
     def get_subject(subject_id):
-        subject_json = Subject.from_bson(find_one_subject(subject_id)).to_json()
-        if subject_json:
+        res = find_one_subject(subject_id)
+        if res:
+            subject_json = Subject.from_bson(res).to_json()
             return success_response({'subject': subject_json})
         else:
             return error_response('Subject with id {} not found'.format(subject_id), 404, None)
