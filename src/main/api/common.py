@@ -1,5 +1,6 @@
 from typing import Optional
 
+from flask import Flask
 from flask.json import jsonify
 
 
@@ -23,3 +24,11 @@ def success_response(payload: dict, code: Optional[int] = None):
         'payload': payload
     }
     return jsonify(result), code
+
+
+def init(app: Flask):
+    @app.errorhandler(500)
+    def server_error_wrapper(e: Exception):
+        return error_response('Server Error', 500, {
+            'message': str(e)
+        })
