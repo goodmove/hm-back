@@ -23,7 +23,7 @@ def get_next_meme_id(user_id, subject_id):
     differences = []
     for meme in memes:
         if meme.shown > 0:
-            meme_difficulty = meme.answered_correctly / meme.shown
+            meme_difficulty = meme.answered_incorrectly / meme.shown
         else:
             meme_difficulty = 0
         differences.append(meme_difficulty - user_strength)
