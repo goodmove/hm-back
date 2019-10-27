@@ -10,8 +10,8 @@ def find_one_subject(subject_id) -> Optional[dict]:
     return DB.subjects.find_one({'_id': ObjectId(subject_id)})
 
 
-def find_all_subjects() -> List[dict]:
-    return list(DB.subjects.find())
+def get_all_subjects() -> List[Subject]:
+    return list(Subject.from_bson(d) for d in DB.subjects.find())
 
 
 def insert_subject(subject_name: str) -> Subject:

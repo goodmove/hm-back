@@ -61,7 +61,6 @@ def init(app: Flask):
     @app.route('/api/memes/', methods=['POST'])
     def add_meme():
         body = request.json
-        print(body)
         meme = insert_meme(body['background_id'],
                             body['subject_id'],
                             body['top_text'],
@@ -74,3 +73,17 @@ def init(app: Flask):
                 )
         print(meme.to_json())
         return success_response({'meme': meme.to_json()})
+
+    @app.route('/api/memes/generate', methods=['POST'])
+    def generate_meme():
+        subjectId = request.json['subjectId']
+        return success_response(
+            {'image': {'id': '_id', 'url': 'https://memegen.link/aag/{}/meme_generated.jpg'.format(subjectId)}})
+
+    @app.route('/api/memes/validate', methods=['POST'])
+    def validate_meme():
+        body = request.json
+        imageId = body['id']
+        decision = body['decision']
+        print("Image decision:", imageId, decision)
+        return success_response({})

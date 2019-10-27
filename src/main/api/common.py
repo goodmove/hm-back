@@ -31,4 +31,12 @@ def init(app: Flask):
     def server_error_wrapper(e: Exception):
         return error_response('Server Error', 500, {
             'message': str(e)
-        })    
+        })
+
+    @app.after_request
+    def inject_cors(response):
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        response.headers['Access-Control-Allow-Method'] = '*'
+        response.headers['Access-Control-Allow-Headers'] = '*'
+
+        return response

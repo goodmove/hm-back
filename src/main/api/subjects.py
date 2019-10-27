@@ -1,7 +1,7 @@
 from flask import Flask, request
 
 from src.main.api.common import error_response, success_response
-from src.main.database.subjects import find_one_subject, find_all_subjects, insert_subject
+from src.main.database.subjects import find_one_subject, get_all_subjects, insert_subject
 from src.main.model.subject import Subject
 
 
@@ -17,8 +17,8 @@ def init(app: Flask):
 
     @app.route('/api/subjects/')
     def list_subjects():
-        subjects = find_all_subjects()
-        return success_response({'subjects': subjects})
+        subjects = get_all_subjects()
+        return success_response({'subjects': [d.to_json() for d in subjects]})
 
     @app.route('/api/subjects/', methods=['POST'])
     def add_subject():
