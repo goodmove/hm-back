@@ -22,9 +22,9 @@ class User:
         self.location = location
         self.age = age
         self.interests = interests
-        self.school = school,
-        self.memes_shown = memes_shown,
-        self.correct_answers = correct_answers,
+        self.school = school
+        self.memes_shown = memes_shown
+        self.correct_answers = correct_answers
         self.incorrect_answers = incorrect_answers
 
     @staticmethod

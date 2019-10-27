@@ -10,10 +10,10 @@ class Answer:
         ):
 
         self.id = id
-        self.meme_id = meme_id,
+        self.meme_id = meme_id
         self.user_id = user_id
         self.subject_id = subject_id
-        self.result = result,
+        self.result = result
         self.feedback = feedback
 
     def to_json(self):

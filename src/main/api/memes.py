@@ -44,11 +44,8 @@ def init(app: Flask):
         meme_id = get_next_meme_id(user_id, subject_id)
         meme = find_one_meme(meme_id)
         return success_response({'meme_id': meme.id,
-                                'background_id': meme.background_id,
-                                'top_text': meme.bottom_text,
-                                'bottom_text': meme.top_text,
+                                'url': meme.url,
                                 'explanation': meme.explanation,
-                                'link': meme.link,
                                 'shown': meme.shown,
                                 'answered_correctly': meme.answered_correctly,
                                 'answered_incorrectly': meme.answered_incorrectly})
@@ -61,12 +58,9 @@ def init(app: Flask):
     @app.route('/api/memes/', methods=['POST'])
     def add_meme():
         body = request.json
-        meme = insert_meme(body['background_id'],
+        meme = insert_meme(body['url'],
                             body['subject_id'],
-                            body['top_text'],
-                            body['bottom_text'],
                             body['explanation'],
-                            body['link'],
                             0,
                             0,
                             0

@@ -18,35 +18,26 @@ def find_all_memes() -> List[Meme]:
     return list([Meme.from_bson(b) for b in DB.memes.find()])
 
 
-def insert_meme(bg_id: str,
+def insert_meme(url: str,
                 subject_id: str,
-                top_text: str,
-                bottom_text: str,
                 explanation: str,
-                link: str,
                 shown: int,
                 answered_correctly: int,
                 answered_incorrectly: int
     ) -> Meme:
 
-    res = DB.memes.insert_one({'background_id': bg_id,
+    res = DB.memes.insert_one({'url': url,
                                 'subject_id': subject_id,
-                                'top_text': top_text,
-                                'bottom_text': bottom_text,
                                 'explanation': explanation,
-                                'link': link,
                                 'shown': shown,
                                 'answered_correctly': answered_correctly,
                                 'answered_incorrectly':  answered_incorrectly
             })
 
     return Meme(str(res.inserted_id),
-            bg_id,
+            url,
             subject_id,
-            top_text,
-            bottom_text,
             explanation,
-            link,
             shown,
             answered_correctly,
             answered_incorrectly
