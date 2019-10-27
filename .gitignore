@@ -1,2 +1,7 @@
 .idea
 __pycache__
+.vscode
+downloads
+pictures
+*.png
+*.jpg
