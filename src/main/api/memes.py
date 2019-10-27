@@ -8,21 +8,21 @@ from src.main.model.meme import Meme
 
 def get_next_meme_id(user_id, subject_id):
     user = find_one_user(user_id)
-    if user.memes_shown > 0:
-        user_strength = user.correct_answers / user.memes_shown
+    if user['memes_shown'] > 0:
+        user_strength = user['correct_answers'] / user['memes_shown']
     else:
         user_strength = 0
 
     memes = find_subject_memes(subject_id)
     differences = []
     for meme in memes:
-        if meme.shown > 0:
+        if (meme.shown > 0):
             meme_difficulty = meme.answered_correctly / meme.shown
         else:
             meme_difficulty = 0
         differences.append(abs(meme_difficulty - user_strength))
     min_index = differences.index(min(differences))
-    return memes[min_index].id
+    return (memes[min_index]).id
 
 
 def init(app: Flask):
@@ -42,13 +42,15 @@ def init(app: Flask):
         user_id = body['user_id']
         subject_id = body['subject_id']
         meme_id = get_next_meme_id(user_id, subject_id)
-        meme = find_one_meme(meme_id)
-        return success_response({'meme_id': meme.id,
-                                'url': meme.url,
-                                'explanation': meme.explanation,
-                                'shown': meme.shown,
-                                'answered_correctly': meme.answered_correctly,
-                                'answered_incorrectly': meme.answered_incorrectly})
+        res = find_one_meme(meme_id)
+        meme = Meme.from_bson(res).to_json()
+        print(meme)
+        return success_response({'meme_id': meme['id'],
+                                'url': meme['url'],
+                                'explanation': meme['explanation'],
+                                'shown': meme['shown'],
+                                'answered_correctly': meme['answered_correctly'],
+                                'answered_incorrectly': meme['answered_incorrectly']})
 
     @app.route('/api/memes/')
     def list_memes():

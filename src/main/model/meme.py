@@ -2,8 +2,8 @@ class Meme:
 
     def __init__(self,
                 id: str,
-                subject_id: str,
                 url: str,
+                subject_id: str,
                 explanation: str,
                 shown: int,
                 answered_correctly: int,
@@ -11,8 +11,8 @@ class Meme:
         ):
 
         self.id = id
-        self.subject_id = subject_id
         self.url = url
+        self.subject_id = subject_id
         self.explanation = explanation
         self.shown = shown
         self.answered_correctly = answered_correctly
@@ -21,9 +21,9 @@ class Meme:
     def to_json(self):
         return {
             'id': self.id,
-            'subject_id': self.subject_id,
             'url': self.url,
-            'explanantion': self.explanation,
+            'subject_id': self.subject_id,
+            'explanation': self.explanation,
             'shown': self.shown,
             'answered_correctly': self.answered_correctly,
             'answered_incorrectly': self.answered_incorrectly 

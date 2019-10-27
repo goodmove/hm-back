@@ -1,6 +1,7 @@
 from typing import Optional, List
 
 from bson.objectid import ObjectId
+from pymongo import ReturnDocument
 
 from src.main.database.common import DB
 from src.main.model.meme import Meme
@@ -11,7 +12,7 @@ def find_one_meme(id: str) -> Optional[dict]:
 
 
 def find_subject_memes(subject_id: str) -> List[Meme]:
-    return list([Meme.from_bson(b) for b in DB.memes.find({'subject_id': ObjectId(subject_id)})])
+    return list([Meme.from_bson(b) for b in DB.memes.find({'subject_id': subject_id})])
 
 
 def find_all_memes() -> List[Meme]:
@@ -50,3 +51,4 @@ def update_meme(id: str, patch_object: dict) -> Meme:
         {'$set': patch_object},
         return_document=ReturnDocument.AFTER
     )
+    return Meme.from_bson(res)
