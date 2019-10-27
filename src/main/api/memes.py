@@ -1,4 +1,5 @@
 import uuid
+import random
 
 from flask import Flask, request
 
@@ -18,6 +19,7 @@ def get_next_meme_id(user_id, subject_id):
         user_strength = user.correct_answers / user.memes_shown
     else:
         user_strength = 0
+    user_strength += (random.randint(0,1) / 10)
 
     memes = find_subject_memes(subject_id)
     differences = []
