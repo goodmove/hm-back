@@ -55,5 +55,4 @@ def update_user(id: str, patch_object: dict) -> User:
         {'$set': patch_object},
         return_document=ReturnDocument.AFTER
     )
-
     return User.from_bson(res)

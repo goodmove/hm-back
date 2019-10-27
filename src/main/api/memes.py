@@ -11,10 +11,6 @@ from src.main.model.meme import Meme
 from src.main.model.user import User
 
 
-# user 5db4fd023afdb02614de515f
-# subject 5db41979915bcbe73c886d39
-
-
 def get_next_meme_id(user_id, subject_id):
     user_bson = find_one_user(user_id)
     user = User.from_bson(user_bson)
@@ -32,7 +28,7 @@ def get_next_meme_id(user_id, subject_id):
             meme_difficulty = 0
         differences.append(abs(meme_difficulty - user_strength))
     min_index = differences.index(min(differences))
-    return memes[min_index].id
+    return (memes[min_index]).id
 
 
 def init(app: Flask):
@@ -52,7 +48,6 @@ def init(app: Flask):
         subject_id = body['subjectId']
         meme_id = get_next_meme_id(user_id, subject_id)
         meme = Meme.from_bson(find_one_meme(meme_id))
-        return success_response({'meme': meme.to_json()})
 
     @app.route('/api/memes/')
     def list_memes():

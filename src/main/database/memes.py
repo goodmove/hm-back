@@ -51,3 +51,4 @@ def update_meme(id: str, patch_object: dict) -> Meme:
         {'$set': patch_object},
         return_document=ReturnDocument.AFTER
     )
+    return Meme.from_bson(res)

@@ -40,7 +40,7 @@ class Answer:
     @staticmethod
     def from_json(json_obj):
         return Answer(
-            id=str(json_obj['_id']),
+            id=str(json_obj['id']),
             meme_id=json_obj['meme_id'],
             user_id=json_obj['user_id'],
             subject_id=json_obj['subject_id'],
