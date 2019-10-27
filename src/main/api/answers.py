@@ -38,6 +38,7 @@ def init(app: Flask):
         if result == 'correct':
             update_meme(meme_id, {'answered_correctly': meme.answered_correctly + 1})
         if result == 'incorrect':
+            print("HERE")
             update_meme(meme_id, {'answered_incorrectly': meme.answered_incorrectly + 1})
 
         # Update urer
@@ -46,6 +47,7 @@ def init(app: Flask):
         if result == 'correct':
             update_user(user_id, {'correct_answers': user.correct_answers + 1})
         if result == 'incorrect':
+            print("THERE")
             update_user(user_id, {'incorrect_answers': user.incorrect_answers + 1})
 
         return success_response({})

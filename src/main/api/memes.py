@@ -26,7 +26,8 @@ def get_next_meme_id(user_id, subject_id):
             meme_difficulty = meme.answered_correctly / meme.shown
         else:
             meme_difficulty = 0
-        differences.append(abs(meme_difficulty - user_strength))
+        differences.append(meme_difficulty - user_strength)
+    print(differences)
     min_index = differences.index(min(differences))
     return (memes[min_index]).id
 
@@ -48,6 +49,7 @@ def init(app: Flask):
         subject_id = body['subjectId']
         meme_id = get_next_meme_id(user_id, subject_id)
         meme = Meme.from_bson(find_one_meme(meme_id))
+        return success_response({'meme': meme.to_json()})
 
     @app.route('/api/memes/')
     def list_memes():
