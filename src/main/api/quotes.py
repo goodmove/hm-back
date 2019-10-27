@@ -3,26 +3,23 @@ from PIL import Image, ImageDraw, ImageFont
 import wikiquote
 import random
 import textwrap
-import sys
 import numpy as np
-sys.path.remove("/opt/ros/kinetic/lib/python2.7/dist-packages")
 import cv2
-
+import os.path as pathutils
+import uuid
 
 def get_quote(name):
     persons = wikiquote.search(name)
     random_quote = random.choice(wikiquote.quotes(persons[0]))
-    first_sentence = random_quote.split(". ")[0]
-    return first_sentence
+    return random_quote
 
 
 def search(query, limit):
     try:
         response = google_images_download.googleimagesdownload()
         arguments = {"keywords":query, "limit":limit, "print_urls":True}
-        paths = response.download(arguments)
-        return paths
-    except 'Downloading error':
+        return response.download(arguments)
+    except Exception as e:
         search(query, limit)
 
 
@@ -39,7 +36,7 @@ def generate_picture_with_text(name, text, path):
 
     draw = ImageDraw.Draw(image)
     font = ImageFont.truetype('impact.ttf', size=45)
-    (x, y) = (40, image.size[1] - lines_height)
+    (x, y) = (35, image.size[1] - lines_height-60)
     color = 'rgb(255, 255, 255)'
 
     y_text = y
@@ -50,6 +47,7 @@ def generate_picture_with_text(name, text, path):
     image.save(name + '.png')
 
 
+# noinspection PyPackageRequirements
 def merge_images_vertically(first_image, second_image, name):
     images_list = [first_image, second_image]
 
@@ -68,14 +66,22 @@ def merge_images_vertically(first_image, second_image, name):
         total_height += imgs[i].shape[0]
     print(min_img_width, imgs[0].shape, imgs[1].shape)
     merged = np.concatenate((imgs[0], imgs[1]), axis=0)
-    
-    
+
     cv2.imwrite(name + 'merged.png', merged)
     return 0
 
+def get_quoted_meme(name):
+    paths = search(name, 5)
+    final_url = None
+    for index, path in enumerate(paths[0][name]):
+        #try:
+        generate_picture_with_text(name, get_quote(name).split(". ")[0], path)
+        picture_path =  pathutils.join('pictures', name + ".png")
+        merge_images_vertically(pathutils.join('templates', 'no_one_template.png'), picture_path, name)
+        final_url = picture_path
+        break
+        #except Exception as e:
+        #    print(e)
 
-name = 'Napoleon'
-paths = search(name, 1)
-path = paths[0][name][0]
-generate_picture_with_text(name, get_quote(name), path)
-merge_images_vertically('templates\\no_one_template.png', name + ".png", name)
+    return final_url
+

@@ -1,6 +1,6 @@
 import bs4
 import requests
-from polyglot.text import Text
+#from polyglot.text import Text
 import json
 
 def get_text_by_url(link = "https://en.wikipedia.org/wiki/French_invasion_of_Russia"):
@@ -64,7 +64,6 @@ def get_human_names(text):
     
 
 def get_meme(name, text):
-
     url = "http://2276.lnsigo.mipt.ru/v1/squad"
     q = "Who is "
     for n in name:
@@ -81,11 +80,23 @@ def get_meme(name, text):
     
     return response.text
 
+#def name_from_text(text):
+#    text_new = Text(text)
+#    for el in text_new.entities:
+#        if el.tag == 'I-PER':
+#            return el
+
 def name_from_text(text):
-    text_new = Text(text)
-    for el in text_new.entities:
-        if el.tag == 'I-PER':
-            return el
+    url = "http://2276.lnsigo.mipt.ru/v1/ner"
+    data = {
+        "secret": "GBEjUo7SSaQDljj9lsZZukUIUl9gr1cc",
+        "text": text}
+    response = requests.post(url=url, data=json.dumps(data))
+
+    print(response.text)
+ #   for person in response.text:
+ #       if person == 'I-PER':
+ #           return person
             
 if __name__ == "__main__":
     text = get_text_by_idea("Winston Churchill")
