@@ -75,11 +75,11 @@ def merge_images_vertically(first_image, second_image, name):
 
 
 def get_quoted_meme(name):
-    paths = search(name, 5)
+    paths = search(name, 10)
     final_picture_path = None
     base_path = pathutils.abspath(pathutils.join('pictures'))
     template_path = pathutils.abspath(pathutils.join('src', 'main', 'api', 'templates', 'no_one_template.png'))
-    for index, path in enumerate(paths[0][name]):
+    for index, path in enumerate(paths[random.randint(10)][name]):
         # try:
         picture_path = pathutils.join(base_path, name + '.png')
         generate_picture_with_text(picture_path, get_quote(name).split(". ")[0], path)
