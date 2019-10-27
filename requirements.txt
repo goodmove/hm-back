@@ -1,18 +1,7 @@
 bs4
 requests
 polyglot
-PIL
 google_images_download
 wikiquote
-textwrap
-pycld2
-morfessor
-pyicu
-tensorflow
-keras
-psutil
-matplotlib
-shutil
-datetime
-operator
+
 

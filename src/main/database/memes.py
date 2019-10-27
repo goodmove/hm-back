@@ -22,9 +22,9 @@ def find_all_memes() -> List[Meme]:
 def insert_meme(url: str,
                 subject_id: str,
                 explanation: str,
-                shown: int,
-                answered_correctly: int,
-                answered_incorrectly: int
+                shown: int = 0,
+                answered_correctly: int = 0,
+                answered_incorrectly: int = 0
     ) -> Meme:
 
     res = DB.memes.insert_one({'url': url,
