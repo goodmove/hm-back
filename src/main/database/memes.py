@@ -1,6 +1,7 @@
 from typing import Optional, List
 
 from bson.objectid import ObjectId
+from pymongo import ReturnDocument
 
 from src.main.database.common import DB
 from src.main.model.meme import Meme

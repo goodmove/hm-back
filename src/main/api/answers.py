@@ -2,17 +2,18 @@ from flask import Flask, request
 
 from src.main.api.common import error_response, success_response
 from src.main.database.answers import (find_one_answer,
-                                        find_all_answers,
-                                        find_user_answers,
-                                        find_meme_answers,
-                                        insert_answer)
+                                       find_all_answers,
+                                       find_user_answers,
+                                       find_meme_answers,
+                                       insert_answer)
 from src.main.database.users import find_one_user, update_user
 from src.main.database.memes import find_one_meme, update_meme
 from src.main.model.answer import Answer
+from src.main.model.meme import Meme
+from src.main.model.user import User
 
 
 def init(app: Flask):
-    
     @app.route('/api/answers/<string:answer_id>')
     def get_answer(answer_id):
         res = find_one_answer(answer_id)
@@ -22,26 +23,25 @@ def init(app: Flask):
         else:
             return error_response('Answer with id {} not found'.format(answer_id), 404, None)
 
-    @app.route('/api/answers/post_answer', methods=['POST'])
+    @app.route('/api/answers', methods=['POST'])
     def post_answer():
         body = request.json
-        meme_id = body['meme_id'],
-        user_id = body['user_id'],
-        subject_id = body['subject_id'],
-        result = body['result'],
-        feedback = body['feedback']
+        meme_id = body['memeId']
+        user_id = body['userId']
+        result = body['result']
+        feedback = body.get('feedback')
         # insert_answer(meme_id, user_id, subject_id, result, feedback)
 
         # Update Meme
-        meme = find_one_meme(meme_id)
+        meme = Meme.from_bson(find_one_meme(meme_id))
         update_meme(meme_id, {'shown': meme.shown + 1})
         if result == 'correct':
-            update_meme(meme_id, {'answered_correcty': meme.answered_correctly + 1})
+            update_meme(meme_id, {'answered_correctly': meme.answered_correctly + 1})
         if result == 'incorrect':
             update_meme(meme_id, {'answered_incorrectly': meme.answered_incorrectly + 1})
 
         # Update urer
-        user = find_one_user(user_id)
+        user = User.from_bson(find_one_user(user_id))
         update_user(user_id, {'memes_shown': user.memes_shown + 1})
         if result == 'correct':
             update_user(user_id, {'correct_answers': user.correct_answers + 1})
@@ -63,7 +63,7 @@ def init(app: Flask):
         return success_response({'answers': [m.to_json() for m in answers]})
 
     @app.route('/api/answers/list_user_answers', methods=['POST'])
-    def list_user_answers(user_id):
+    def list_user_answers():
         body = request.json
         user_id = body['user_id']
         answers = find_user_answers(user_id)

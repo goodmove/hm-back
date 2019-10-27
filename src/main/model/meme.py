@@ -23,7 +23,7 @@ class Meme:
             'id': self.id,
             'subject_id': self.subject_id,
             'url': self.url,
-            'explanantion': self.explanation,
+            'explanation': self.explanation,
             'shown': self.shown,
             'answered_correctly': self.answered_correctly,
             'answered_incorrectly': self.answered_incorrectly 
