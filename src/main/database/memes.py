@@ -11,7 +11,7 @@ def find_one_meme(id: str) -> Optional[dict]:
 
 
 def find_subject_memes(subject_id: str) -> List[Meme]:
-    return list([Meme.from_bson(b) for b in DB.memes.find({'subject_id': ObjectId(subject_id)})])
+    return list([Meme.from_bson(b) for b in DB.memes.find({'subject_id': subject_id})])
 
 
 def find_all_memes() -> List[Meme]:

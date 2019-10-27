@@ -1,16 +1,23 @@
+import uuid
+
 from flask import Flask, request
 
 from src.main.api.amazon import upload_file
 from src.main.api.common import error_response, success_response
+from src.main.api.quotes import *
 from src.main.database.memes import find_one_meme, find_subject_memes, find_all_memes, insert_meme
 from src.main.database.users import find_one_user
 from src.main.model.meme import Meme
-from src.main.api.quotes import *
+from src.main.model.user import User
 
-import uuid
+
+# user 5db4fd023afdb02614de515f
+# subject 5db41979915bcbe73c886d39
+
 
 def get_next_meme_id(user_id, subject_id):
-    user = find_one_user(user_id)
+    user_bson = find_one_user(user_id)
+    user = User.from_bson(user_bson)
     if user.memes_shown > 0:
         user_strength = user.correct_answers / user.memes_shown
     else:
@@ -29,7 +36,6 @@ def get_next_meme_id(user_id, subject_id):
 
 
 def init(app: Flask):
-
     @app.route('/api/memes/<string:meme_id>')
     def get_meme(meme_id):
         res = find_one_meme(meme_id)
@@ -42,16 +48,11 @@ def init(app: Flask):
     @app.route('/api/memes/next', methods=['POST'])
     def get_next_meme():
         body = request.json
-        user_id = body['user_id']
-        subject_id = body['subject_id']
+        user_id = body['userId']
+        subject_id = body['subjectId']
         meme_id = get_next_meme_id(user_id, subject_id)
-        meme = find_one_meme(meme_id)
-        return success_response({'meme_id': meme.id,
-                                'url': meme.url,
-                                'explanation': meme.explanation,
-                                'shown': meme.shown,
-                                'answered_correctly': meme.answered_correctly,
-                                'answered_incorrectly': meme.answered_incorrectly})
+        meme = Meme.from_bson(find_one_meme(meme_id))
+        return success_response({'meme': meme.to_json()})
 
     @app.route('/api/memes/')
     def list_memes():
@@ -62,12 +63,12 @@ def init(app: Flask):
     def add_meme():
         body = request.json
         meme = insert_meme(body['url'],
-                            body['subject_id'],
-                            body['explanation'],
-                            0,
-                            0,
-                            0
-                )
+                           body['subject_id'],
+                           body['explanation'],
+                           0,
+                           0,
+                           0
+                           )
         print(meme.to_json())
         return success_response({'meme': meme.to_json()})
 
@@ -82,8 +83,8 @@ def init(app: Flask):
 
         image_key = str(uuid.uuid4()) + '.png'
         upload_file(file_path, image_key)
-        meme = insert_meme(image_key, subjectId, description)
         image_url = 'https://hack-moscow-bucket.s3.eu-north-1.amazonaws.com/' + image_key
+        meme = insert_meme(image_url, subjectId, description)
         return success_response({'image': {'id': meme.id, 'url': image_url}})
 
     @app.route('/api/memes/validate', methods=['POST'])
