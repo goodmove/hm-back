@@ -1,7 +1,7 @@
 from flask import Flask, request
 
 from src.main.api.common import error_response, success_response
-from src.main.database.users import find_one_user, get_all_users, insert_user, update_user
+from src.main.database.users import find_one_user, find_all_users, insert_user, update_user
 from src.main.model.user import User
 
 
@@ -17,7 +17,7 @@ def init(app: Flask):
 
     @app.route('/api/users/')
     def list_users():
-        data = get_all_users()
+        data = find_all_users()
         return success_response({'users': [d.to_json() for d in data]})
 
     @app.route('/api/users/', methods=['POST'])
@@ -30,6 +30,10 @@ def init(app: Flask):
             age=body.get('age'),
             school=body.get('school'),
             interests=body.get('interests', []),
+            memes_shown=0,
+            correct_answers=0,
+            incorrect_answers=0
+
         )
         return success_response({'user': inserted.to_json()})
 
@@ -42,7 +46,10 @@ def init(app: Flask):
             'location': body.get('location'),
             'age': body.get('age'),
             'school': body.get('school'),
-            'interests': body.get('interests')
+            'interests': body.get('interests'),
+            'memes_shown': body.get('memes_shown'),
+            'correct_answers': body.get('correct_answers'),
+            'incorrect_answers': body.get('incorrect_answers')
         }
 
         null_keys = []

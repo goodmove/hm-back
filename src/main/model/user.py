@@ -11,7 +11,10 @@ class User:
                  location: str,
                  age: int,
                  interests: List[str],
-                 school: str
+                 school: str,
+                 memes_shown: int,
+                 correct_answers: int,
+                 incorrect_answers: int
                  ):
         self.id = id
         self.first_name = first_name
@@ -19,7 +22,10 @@ class User:
         self.location = location
         self.age = age
         self.interests = interests
-        self.school = school
+        self.school = school,
+        self.memes_shown = memes_shown,
+        self.correct_answers = correct_answers,
+        self.incorrect_answers = incorrect_answers
 
     @staticmethod
     def from_json(json_obj: dict):
@@ -31,6 +37,9 @@ class User:
             age=json_obj.get('age'),
             interests=json_obj.get('interests'),
             school=json_obj.get('school'),
+            memes_shown=json_obj.get('memes_shown'),
+            correct_answers=json_obj.get('correct_answers'),
+            incorrect_answers=json_obj.get('incorrect_answers')
         )
 
     @staticmethod
@@ -48,4 +57,8 @@ class User:
             'age': self.age,
             'interests': self.interests,
             'school': self.school,
+            'memes_shown': self.memes_shown,
+            'correct_answers': self.correct_answers,
+            'incorrect_answers': self.incorrect_answers,
+
         }

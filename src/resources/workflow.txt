@@ -1,0 +1,25 @@
+# get new meme
+client sends request
+    provides user_id, subject
+server calculates next meme
+server returns response
+    response contains meme_id, meme_result, explanation, 
+
+# report meme answer
+client sends request
+    provides meme_id, user_id, result(correct/incorr/no_clue), feedback(like/dislike/none)
+server creates meme_answer_dataset
+    dataset contains user_id, meme_id, result(correct/incorr/no_clue)
+server updates meme_informations
+    meme_answered +=1
+    meme_answered_pos/_neg/_neutral +=1
+server updates user_informations
+    user_answered +=1
+    user_answered_correct/_incorr/_neutral +=1
+server returns response (successful)
+
+
+
+
+# todo
+calculate if/when memes will be re-shown

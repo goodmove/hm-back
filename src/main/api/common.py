@@ -31,4 +31,4 @@ def init(app: Flask):
     def server_error_wrapper(e: Exception):
         return error_response('Server Error', 500, {
             'message': str(e)
-        })
+        })    
