@@ -1,10 +1,13 @@
 from flask import Flask, request
 
+from src.main.api.amazon import upload_file
 from src.main.api.common import error_response, success_response
 from src.main.database.memes import find_one_meme, find_subject_memes, find_all_memes, insert_meme
 from src.main.database.users import find_one_user
 from src.main.model.meme import Meme
 from src.main.api.quotes import *
+
+import uuid
 
 def get_next_meme_id(user_id, subject_id):
     user = find_one_user(user_id)
@@ -71,14 +74,17 @@ def init(app: Flask):
     @app.route('/api/memes/generate', methods=['POST'])
     def generate_meme():
         subjectId = request.json['subjectId']
-        url = get_quoted_meme(request.json['caption'])
+        file_path = get_quoted_meme(request.json['caption'])
         description = get_quote(request.json['caption']) + 'said ' + request.json['caption']
 
-        if url is not None:
-            return error_response('Failed to create picture', 500)
-        meme = insert_meme(url, subjectId, description)
-        return success_response(
-            {'image': {'id': meme.id, 'url': meme.url}})
+        if file_path is None:
+            return error_response('Failed to create mem', 500, {})
+
+        image_key = str(uuid.uuid4()) + '.png'
+        upload_file(file_path, image_key)
+        meme = insert_meme(image_key, subjectId, description)
+        image_url = 'https://hack-moscow-bucket.s3.eu-north-1.amazonaws.com/' + image_key
+        return success_response({'image': {'id': meme.id, 'url': image_url}})
 
     @app.route('/api/memes/validate', methods=['POST'])
     def validate_meme():
