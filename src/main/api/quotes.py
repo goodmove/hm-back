@@ -37,7 +37,7 @@ def generate_picture_with_text(target_path, text, source_path):
     image = image.resize((basewidth, hsize), Image.ANTIALIAS)
 
     draw = ImageDraw.Draw(image)
-    font = ImageFont.truetype(pathutils.abspath('./api/impact.ttf'), size=45)
+    font = ImageFont.truetype(pathutils.abspath('src/main/api/impact.ttf'), size=45)
     (x, y) = (35, image.size[1] - lines_height - 60)
     color = 'rgb(255, 255, 255)'
 
@@ -78,7 +78,7 @@ def get_quoted_meme(name):
     paths = search(name, 5)
     final_picture_path = None
     base_path = pathutils.abspath(pathutils.join('pictures'))
-    template_path = pathutils.abspath(pathutils.join('api', 'templates', 'no_one_template.png'))
+    template_path = pathutils.abspath(pathutils.join('src', 'main', 'api', 'templates', 'no_one_template.png'))
     for index, path in enumerate(paths[0][name]):
         # try:
         picture_path = pathutils.join(base_path, name + '.png')
