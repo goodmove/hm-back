@@ -19,7 +19,7 @@ def get_next_meme_id(user_id, subject_id):
         user_strength = user.correct_answers / user.memes_shown
     else:
         user_strength = 0
-    user_strength += (random.randint(0,1) / 10)
+    user_strength += (random.randint(0,10) / 10)
 
     memes = find_subject_memes(subject_id)
     differences = []
@@ -28,9 +28,10 @@ def get_next_meme_id(user_id, subject_id):
             meme_difficulty = meme.answered_incorrectly / meme.shown
         else:
             meme_difficulty = 0
-        differences.append(meme_difficulty - user_strength)
+        differences.append(abs(meme_difficulty - user_strength))
     print(differences)
     min_index = differences.index(min(differences))
+    print(min_index)
     return (memes[min_index]).id
 
 
@@ -47,8 +48,8 @@ def init(app: Flask):
     @app.route('/api/memes/next', methods=['POST'])
     def get_next_meme():
         body = request.json
-        user_id = body['userId']
-        subject_id = body['subjectId']
+        user_id = body['user_id']
+        subject_id = body['subject_id']
         meme_id = get_next_meme_id(user_id, subject_id)
         meme = Meme.from_bson(find_one_meme(meme_id))
         return success_response({'meme': meme.to_json()})
